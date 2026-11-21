@@ -9,79 +9,53 @@
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <style>
 :root{color-scheme:light;--ink:#172a3a;--muted:#607080;--paper:#f5f3ee;--card:#fff;--line:#e4e1d9;--green:#287b60;--soft:#e8f2ed}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
-main{max-width:760px;margin:auto;padding:22px 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.eyebrow{font-size:.75rem;letter-spacing:.13em;font-weight:800;color:var(--muted)}h1{font-size:2rem;margin:.15rem 0}h2{font-size:1.15rem;margin:0 0 12px}.muted{color:var(--muted)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 3px 14px #172a3a08}
-.pill{background:var(--soft);color:var(--green);padding:5px 10px;border-radius:99px;font-size:.78rem;font-weight:750}label{display:block;font-weight:700;margin:10px 0 6px}select,textarea,button{font:inherit}select,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink)}button{border:0;border-radius:11px;padding:11px 14px;background:var(--ink);color:white;font-weight:700;cursor:pointer}button.secondary{background:var(--soft);color:var(--green)}button:disabled{opacity:.4}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:#f7f8f6;border-radius:12px;padding:12px}.stat strong{display:block;font-size:1.45rem}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day{border:1px solid var(--line);border-radius:12px;text-align:center;padding:9px 2px;background:#fff}.day small{display:block;color:var(--muted);font-size:.7rem}.day input{width:19px;height:19px;accent-color:var(--green);margin:8px 0 2px}.progress{height:9px;background:#e8e8e2;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;background:var(--green);width:0}.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.pillar{background:#f7f8f6;padding:12px;border-radius:12px}.pillar b{display:block}.notice{font-size:.85rem;background:#fff8e8;border-radius:12px;padding:12px;color:#705522}.actions{display:flex;gap:8px;flex-wrap:wrap}.foot{font-size:.78rem;color:var(--muted);text-align:center;margin-top:24px}
-@media(max-width:420px){.days{gap:3px}.day{padding:7px 0}.day small{font-size:.63rem}.stats{gap:6px}.stat{padding:9px}}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:760px;margin:auto;padding:22px 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.eyebrow{font-size:.75rem;letter-spacing:.13em;font-weight:800;color:var(--muted)}h1{font-size:2rem;margin:.15rem 0}.muted{color:var(--muted)}h2{font-size:1.15rem;margin:0 0 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 3px 14px #172a3a08}.pill{background:var(--soft);color:var(--green);padding:5px 10px;border-radius:99px;font-size:.78rem;font-weight:750}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:#f7f8f6;border-radius:12px;padding:12px}.stat strong{display:block;font-size:1.45rem}.stat span{font-size:.85rem}.progress{height:9px;background:#e8e8e2;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:var(--green);transition:width .2s}.group{margin:16px 0}.group h3{margin:0 0 8px;font-size:1rem}.achievement{display:flex;align-items:center;gap:11px;padding:11px 10px;border:1px solid var(--line);border-radius:12px;margin:7px 0;background:#fff}.achievement input[type=checkbox]{width:21px;height:21px;accent-color:var(--green);flex:none}.achievement .name{flex:1}.achievement.done{background:var(--soft);border-color:#cde2d7}.done .name{text-decoration:line-through;color:var(--muted)}.date{font-size:.78rem;color:var(--muted);white-space:nowrap}button{font:inherit;border:0;border-radius:11px;padding:10px 14px;background:var(--ink);color:#fff;font-weight:700;cursor:pointer}button.secondary{background:var(--soft);color:var(--green)}button:focus-visible,input:focus-visible{outline:3px solid #78b49d;outline-offset:2px}.actions{display:flex;gap:8px;flex-wrap:wrap}.notice{font-size:.88rem;background:#fff8e8;border-radius:12px;padding:12px;color:#705522}.foot{font-size:.78rem;color:var(--muted);text-align:center;margin-top:24px}@media(max-width:500px){.top{align-items:flex-start}.stats{gap:6px}.stat{padding:9px}.achievement{gap:8px}.date{font-size:.72rem}}
 </style>
 </head>
 <body><main>
-<header class="top"><div><div class="eyebrow">YOUR PERSONAL WELLBEING ADVENTURE</div><h1>🎮 Life Quest</h1><div class="muted">Small steps. Meaningful progress.</div></div><span class="pill">Weekly quests</span></header>
+<header class="top"><div><div class="eyebrow">YOUR PERSONAL WELLBEING ADVENTURE</div><h1>🎮 Life Quest</h1><div class="muted">Small steps. Meaningful progress.</div></div><span class="pill">Achievement checklist</span></header>
 <section class="card">
- <div class="row"><h2>This week's quest</h2><span class="pill" id="weekLabel"></span></div>
- <p class="muted" style="margin-top:-5px">Weeks run Monday to Sunday. Choose one challenge to focus on this week.</p>
- <label for="challenge">Choose a challenge</label><select id="challenge"></select>
- <div class="stats" style="margin-top:14px">
-  <div class="stat"><strong id="attemptCount">0/7</strong><span class="muted">Days attempted</span></div>
+ <h2>Your progress</h2>
+ <div class="stats">
+  <div class="stat"><strong id="completedCount">0/24</strong><span class="muted">Achievements done</span></div>
   <div class="stat"><strong id="xp">0</strong><span class="muted">XP earned</span></div>
-  <div class="stat"><strong id="streak">0</strong><span class="muted">Current streak</span></div>
+  <div class="stat"><strong id="remaining">24</strong><span class="muted">Still to explore</span></div>
  </div>
- <div style="margin-top:14px" class="progress"><span id="bar"></span></div>
+ <div style="margin-top:14px" class="progress" role="progressbar" aria-label="Achievement completion" aria-valuemin="0" aria-valuemax="24" aria-valuenow="0"><span id="bar"></span></div>
 </section>
 <section class="card">
- <h2>Daily check-in</h2><p class="muted">Tick the days you made an attempt. Showing up counts.</p>
- <div class="days" id="days"></div>
- <label for="reflection">Weekly reflection (optional)</label><textarea id="reflection" rows="3" placeholder="What went well? What got in the way?"></textarea>
- <div class="actions" style="margin-top:12px"><button id="saveReflection">Save reflection</button><button class="secondary" id="clearWeek">Clear this week's check-ins</button></div>
+ <h2>All achievements</h2>
+ <p class="muted" style="margin-top:-5px">Tick each achievement when you complete it. Each one only counts once, and its completion date is saved.</p>
+ <div id="achievements"></div>
+ <div class="actions" style="margin-top:14px"><button class="secondary" id="clearCompleted">Reset all achievements</button></div>
  <p id="saveStatus" class="muted" aria-live="polite"></p>
 </section>
 <section class="card">
- <h2>Your four pillars</h2><div class="pillars" id="pillars"></div>
-</section>
-<section class="card">
  <h2>How the game works</h2>
- <p>Choose one challenge each week. Every daily attempt earns <b>10 XP</b>. Complete all seven days to earn the <b>Seven-day Quest</b> achievement. You can repeat a challenge or choose a different one next Monday.</p>
- <p class="notice">Your entries are saved in this browser on this device. Clearing browser data or changing devices may remove them. This first version does not sync between devices or send app notifications.</p>
+ <p>Work through the 24 achievements at your own pace. Tick an achievement when it is done to record its completion date and earn <b>10 XP</b>. Your progress is based on unique achievements completed—not repeating the same activity every day or week.</p>
+ <p class="notice">Your entries are saved in this browser on this device. They do not sync between devices. Earlier daily check-ins, if any, are left untouched and are not counted as completed achievements.</p>
 </section>
 <div class="foot">Life Quest · Inspired by the four-pillar framework in The Stress Solution</div>
 </main>
 <script>
 const groups=[
-{name:"Purpose",icon:"🎯",items:["Make Daily Affirmations","Reframe Your Day","Practise the Three P's of Gratitude","Make a Schedule","Zone in Each Morning: Win the First Five","Apply the L.I.V.E. Framework"]},
-{name:"Relationships",icon:"❤️",items:["Keep a Touch Diary","Do the Seeing Eye to Eye Exercise","Implement the 3D Greeting","Make a Plan for Intimacy","Become a Regular","Diarize Time with Your Friends"]},
-{name:"Body",icon:"💪",items:["Eat the Alphabet","Your Daily Exercise Prescription","Burn the Stress Away","Eat Your Food Within Twelve Hours","Reduce Liquid Stress","Treat Yourself to Sleep"]},
-{name:"Mind",icon:"🧠",items:["Take a Digital Holiday","Mute Your Digital World","Declutter Your Life","Enjoy a Daily Dose of Nature","Meditate for at least Five Minutes Daily","Have a Regular Breathing Practice"]}
+ {name:"Purpose",icon:"🎯",items:["Make Daily Affirmations","Reframe Your Day","Practise the Three P's of Gratitude","Make a Schedule","Zone in Each Morning: Win the First Five","Apply the L.I.V.E. Framework"]},
+ {name:"Relationships",icon:"❤️",items:["Keep a Touch Diary","Do the Seeing Eye to Eye Exercise","Implement the 3D Greeting","Make a Plan for Intimacy","Become a Regular","Diarize Time with Your Friends"]},
+ {name:"Body",icon:"💪",items:["Eat the Alphabet","Your Daily Exercise Prescription","Burn the Stress Away","Eat Your Food Within Twelve Hours","Reduce Liquid Stress","Treat Yourself to Sleep"]},
+ {name:"Mind",icon:"🧠",items:["Take a Digital Holiday","Mute Your Digital World","Declutter Your Life","Enjoy a Daily Dose of Nature","Meditate for at least Five Minutes Daily","Have a Regular Breathing Practice"]}
 ];
-const all=groups.flatMap(g=>g.items.map(item=>({item,group:g.name})));
-const $=id=>document.getElementById(id);
-const today=new Date(); const monday=d=>{const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getDate()-((x.getDay()+6)%7));return x};
-const keyDate=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-let start=monday(today), weekKey=keyDate(start);
-let db={};try{db=JSON.parse(localStorage.getItem("lifeQuestV1")||"{}")}catch(e){}
-if(!db.weeks)db.weeks={};
-if(!db.weeks[weekKey])db.weeks[weekKey]={challenge:all[0].item,days:[],reflection:""};
-let week=db.weeks[weekKey];
-const fmt=d=>d.toLocaleDateString(undefined,{day:"numeric",month:"short"});
-$("weekLabel").textContent=`${fmt(start)} – ${fmt(new Date(start.getTime()+6*86400000))}`;
-$("challenge").innerHTML=groups.map(g=>`<optgroup label="${g.icon} ${g.name}">${g.items.map(i=>`<option>${i}</option>`).join("")}</optgroup>`).join("");
-$("challenge").value=week.challenge;
-$("challenge").addEventListener("change",e=>{week.challenge=e.target.value;persist();render()});
-$("reflection").value=week.reflection||"";
-function persist(){db.weeks[weekKey]=week;localStorage.setItem("lifeQuestV1",JSON.stringify(db))}
+const all=groups.flatMap(g=>g.items.map(item=>({item,group:g.name,icon:g.icon})));const $=id=>document.getElementById(id);const keyDate=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;const today=keyDate(new Date());
+let db={completed:{}};try{const saved=JSON.parse(localStorage.getItem("lifeQuestV2")||"{}");if(saved&&saved.completed&&typeof saved.completed==="object")db.completed=saved.completed}catch(e){}
+// Ignore entries for names no longer present in the achievement list.
+for(const name of Object.keys(db.completed))if(!all.some(a=>a.item===name))delete db.completed[name];
+function persist(){localStorage.setItem("lifeQuestV2",JSON.stringify(db))}
 function render(){
- $("days").innerHTML=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map((d,i)=>{let date=new Date(start.getTime()+i*86400000);return `<label class="day"><small>${d}<br>${date.getDate()}</small><input type="checkbox" data-day="${i}" aria-label="${d} attempt" ${week.days.includes(i)?"checked":""}></label>`}).join("");
- $("days").querySelectorAll("input").forEach(el=>el.addEventListener("change",e=>{let i=+e.target.dataset.day;week.days=e.target.checked?[...new Set([...week.days,i])]:week.days.filter(x=>x!==i);persist();renderStats()}));
- $("reflection").value=week.reflection||"";renderStats();
+ $('achievements').innerHTML=groups.map(g=>`<div class="group"><h3>${g.icon} ${g.name}</h3>${g.items.map(item=>{const done=!!db.completed[item];const date=db.completed[item]||'';return `<label class="achievement ${done?'done':''}"><input type="checkbox" data-item="${item}" ${done?'checked':''} aria-label="Mark ${item} ${done?'not done':'done'}"><span class="name">${item}</span>${done?`<span class="date">Done ${new Date(`${date}T00:00:00`).toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'})}</span>`:''}</label>`}).join('')}</div>`).join('');
+ $('achievements').querySelectorAll('input[type="checkbox"]').forEach(input=>input.addEventListener('change',e=>{const item=e.target.dataset.item;if(e.target.checked)db.completed[item]=today;else delete db.completed[item];persist();render();$('saveStatus').textContent=e.target.checked?`${item} marked complete.`:`${item} marked incomplete.`}));
+ renderStats();
 }
-function renderStats(){
- const n=week.days.length; $("attemptCount").textContent=`${n}/7`; $("xp").textContent=n*10; $("bar").style.width=`${n/7*100}%`;
- let streak=0;for(let i=6;i>=0;i--){if(week.days.includes(i))streak++;else if(streak)break}
- $("streak").textContent=streak;
- $("days").querySelectorAll("input").forEach(el=>el.checked=week.days.includes(+el.dataset.day));
-}
-$("saveReflection").onclick=()=>{week.reflection=$("reflection").value;persist();$("saveStatus").textContent="Reflection saved on this device."};
-$("clearWeek").onclick=()=>{if(confirm("Clear this week's check-ins and reflection?")){week.days=[];week.reflection="";persist();render();$("saveStatus").textContent="This week's entries were cleared."}};
-$("pillars").innerHTML=groups.map(g=>`<div class="pillar">${g.icon} <b>${g.name}</b><span class="muted">${g.items.length} challenges</span></div>`).join("");
+function renderStats(){const n=Object.keys(db.completed).length;$('completedCount').textContent=`${n}/${all.length}`;$('xp').textContent=n*10;$('remaining').textContent=all.length-n;$('bar').style.width=`${n/all.length*100}%`;$('bar').parentElement.setAttribute('aria-valuenow',n)}
+$('clearCompleted').addEventListener('click',()=>{if(confirm('Reset all achievement checkmarks and completion dates?')){db.completed={};persist();render();$('saveStatus').textContent='All achievements were reset.'}});
 render();
-if("serviceWorker" in navigator && location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(()=>{});
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
 </script></body></html>
